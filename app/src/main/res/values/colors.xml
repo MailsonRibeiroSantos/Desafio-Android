@@ -6,4 +6,6 @@
     <color name="colorButtonLogin">#FF5252</color>
     <color name="colorButtonRegister">#8492A6</color>
     <color name="colorWhite">#FFFFFF</color>
+    <color name="colorTitle">#1F2D3D</color>
+    <color name="colorCaption">##8492A6</color>
 </resources>

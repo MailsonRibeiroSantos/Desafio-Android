@@ -9,5 +9,6 @@
     <string name="name">Name</string>
     <string name="register">REGISTER</string>
     <string name="or">OR</string>
+    <string name="restaurant_image">Restaurant image</string>
 
 </resources>
