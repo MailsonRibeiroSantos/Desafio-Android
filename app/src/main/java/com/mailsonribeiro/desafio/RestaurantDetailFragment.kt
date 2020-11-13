@@ -9,8 +9,11 @@ import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.navigation.Navigation
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+
+const val  SPAN_COUNT = 2
 
 
 class RestaurantDetailFragment : Fragment() {
@@ -51,10 +54,14 @@ class RestaurantDetailFragment : Fragment() {
         val menus = arrayListOf<Menu>(menu,menu,menu,menu,menu,menu,menu,menu,menu,menu
         )
 
-        val viewManager = LinearLayoutManager(view.context)
+        val viewManager = GridLayoutManager(view.context,SPAN_COUNT)
         val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view_restaurant)
 
-        val viewAdapter = RestaurantDetailAdapter(menus)
+
+        val viewAdapter = RestaurantDetailAdapter(menus){
+            //val bundle = bundleOf(HomeFragment.KEY_IMAGE to it.image)
+            navController.navigate(R.id.recipDetailFragment)
+        }
 
         with(recyclerView) {
             setHasFixedSize(true)

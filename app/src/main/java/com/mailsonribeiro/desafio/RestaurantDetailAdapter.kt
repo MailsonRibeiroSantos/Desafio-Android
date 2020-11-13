@@ -1,10 +1,11 @@
 package com.mailsonribeiro.desafio
 
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class RestaurantDetailAdapter(private val menus: List<Menu>) : RecyclerView.Adapter<RestaurantDetailViewHolder>() {
+class RestaurantDetailAdapter(private val menus: List<Menu>,private val listener: (Menu) -> Unit) : RecyclerView.Adapter<RestaurantDetailViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RestaurantDetailViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_restaurant, parent, false)
 
@@ -15,5 +16,6 @@ class RestaurantDetailAdapter(private val menus: List<Menu>) : RecyclerView.Adap
 
     override fun onBindViewHolder(holder: RestaurantDetailViewHolder, position: Int) {
         holder.bind(menus[position])
+        holder.itemView.setOnClickListener { listener(menus[position]) }
     }
 }
