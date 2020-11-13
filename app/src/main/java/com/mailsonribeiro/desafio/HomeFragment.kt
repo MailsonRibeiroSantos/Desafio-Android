@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -32,15 +34,20 @@ class HomeFragment : Fragment() {
             Restaurant("Sí Señor!",address3,"01:00",R.drawable.si)
         )
 
+       val navController = Navigation.findNavController(view)
+
         val viewManager = LinearLayoutManager(view.context)
         val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view)
 
-        val viewAdapter = RestaurantAdapter(restaurants)
+        val viewAdapter = RestaurantAdapter(restaurants){
+            val bundle = bundleOf(KEY_IMAGE to it.image)
+            navController.navigate(R.id.restaurantDetailFragment,bundle)
+        }
         with(recyclerView) {
             setHasFixedSize(true)
             layoutManager = viewManager
             adapter = viewAdapter
-          }
+        }
 
     }
 
@@ -50,6 +57,9 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_home, container, false)
+    }
+    companion object {
+        const val KEY_IMAGE = "IMAGE"
     }
 
 }

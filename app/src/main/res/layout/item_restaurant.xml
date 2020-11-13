@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="16dp"
+    android:layout_marginStart="9dp"
+    android:layout_marginEnd="9dp"
+    app:cardCornerRadius="12dp"
+    android:clickable="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:id="@+id/ivImageRestaurantDetail"
+                android:layout_width="match_parent"
+                android:layout_height="238dp"
+                android:layout_margin="8dp"
+                android:contentDescription="@string/restaurant_image"
+                />
+
+            <TextView
+                android:id="@+id/tvNameRestaurantDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:textColor="@color/colorCaption"
+                android:textSize="14pt"
+                android:fontFamily="sans-serif"
+                android:layout_gravity="center"
+                android:gravity="center"
+                tools:text="Tony Roma's" />
+
+
+        </LinearLayout>
+</androidx.cardview.widget.CardView>
+
+
