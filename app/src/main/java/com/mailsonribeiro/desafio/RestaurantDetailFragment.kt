@@ -26,6 +26,7 @@ class RestaurantDetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         return inflater.inflate(R.layout.fragment_restaurant_detail, container, false)
     }
 

@@ -16,7 +16,10 @@ class RestaurantViewHolder (val view: View) : RecyclerView.ViewHolder(view) {
 
     fun bind(restaurant: Restaurant) {
         tvName.text = restaurant.name
-        tvAdress.text = """${restaurant.address.street}, ${restaurant.address.number} - ${restaurant.address.neighborhood}, ${restaurant.address.city}""".trimMargin()
+        tvAdress.text = """${restaurant.address.street}, ${restaurant.address.number} - ${restaurant.address.neighborhood},""".trimMargin() +
+                if(restaurant.address.city==null) "" else restaurant.address.city
+
+        tvHour.text = "Fecha às " + restaurant.hour
 
         val avatarDrawable = ContextCompat.getDrawable(view.context, restaurant.image);
 
