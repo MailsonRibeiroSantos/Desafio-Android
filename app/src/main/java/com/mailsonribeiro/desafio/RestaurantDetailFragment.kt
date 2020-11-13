@@ -59,8 +59,9 @@ class RestaurantDetailFragment : Fragment() {
 
 
         val viewAdapter = RestaurantDetailAdapter(menus){
-            //val bundle = bundleOf(HomeFragment.KEY_IMAGE to it.image)
-            navController.navigate(R.id.recipDetailFragment)
+            val bundle = bundleOf(RestaurantDetailFragment.KEY_IMAGE to it.image,
+                RestaurantDetailFragment.KEY_DESCRIPTION to it.description)
+            navController.navigate(R.id.recipDetailFragment,bundle)
         }
 
         with(recyclerView) {
@@ -69,6 +70,11 @@ class RestaurantDetailFragment : Fragment() {
             adapter = viewAdapter
         }
 
+    }
+
+    companion object {
+        const val KEY_IMAGE = "IMAGE"
+        const val KEY_DESCRIPTION = "DESCRIPTION"
     }
 
 
